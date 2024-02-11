@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Word = require('/models/word');
+const Word = require('./models/word');
 
 
 // Pagrindinis puslapis
