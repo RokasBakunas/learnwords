@@ -9,7 +9,7 @@ const path = require('path');
 require('dotenv').config()
 
 const app = express();
-const port = 3004;
+const port = 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
