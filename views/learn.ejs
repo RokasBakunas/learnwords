@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn</title>
+    <link href="/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto mt-8">
+        <div class="flex justify-center">
+            <a href="/add-words" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add New Words</a>
+            <a href="/learn" class="ml-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Learn</a>
+            <a href="/stats" class="ml-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">View Statistics</a>
+        </div>
+    </div>
+    <div class="container mx-auto pt-8">
+        <h1 class="text-2xl font-bold text-center mb-6">Learn</h1>
+        <div class="text-center mb-4">
+            <p> <%= responseRate %>%</p>
+            <div class="bg-gray-200 w-full rounded-full h-4 dark:bg-gray-700">
+                <div class="bg-blue-600 h-4 rounded-full" style="width:<%= responseRate %>%"></div>
+            </div>
+        </div>
+        <form action="/answer" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <input type="hidden" name="wordId" value="<%= word._id %>">
+            <% if (Math.random() > 0.5) { %>
+                <div class="mb-4">
+                    <p class="block text-gray-700 text-sm font-bold mb-2">Translate this German word: <%= word.germanWord %> (Pronunciation: <%= word.pronunciation %>)</p>
+                    <input type="hidden" name="language" value="DE">
+                    <input type="text" name="answer" placeholder="Enter Lithuanian translation" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+            <% } else { %>
+                <div class="mb-4">
+                    <p class="block text-gray-700 text-sm font-bold mb-2">Translate this Lithuanian word: <%= word.lithuanianWord %></p>
+                    <input type="hidden" name="language" value="LT">
+                    <input type="text" name="answer" placeholder="Enter German translation" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+            <% } %>
+            
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Check Answer
+            </button>
+        </form>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+</body>
+</html>
