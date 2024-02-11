@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 //const Word = require('./models/Word');
-const wordRoutes = require('./routes/words');
+const wordRoutes = require('/routes/words');
 const path = require('path');
 
 
